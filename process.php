@@ -2,13 +2,14 @@
 
 session_start();
 
-$mysqli = new mysqli('localhost','root','','CRUD1')or die(mysqli_error($mysqli));
+$mysqli = new mysqli('localhost','id9412481_transaction','test123','id9412481_crud1') or die(mysqli_error($mysqli));
 
 $id = 0;
 $update = false;
 $email_id = " ";
 $name = " ";
 $credentials = " ";
+
 
 if (isset($_POST['save'])){
   $email_id = $_POST['email_id'];
@@ -45,6 +46,7 @@ if (isset($_GET['edit'])){
     $email_id = $row['email_id'];
     $name = $row['name'];
     $credentials = $row['credentials'];
+
   }
 
 }
@@ -63,5 +65,20 @@ if (isset($_POST['update'])){
   $_SESSION['msg_type'] = "warning";
 
   header("location:index.php");
+
+}
+
+if(isset($_POST['submit'])){
+  $tid = $_POST["id"];
+  $a = $_POST["amount"];
+
+  $credentials = $_POST['credentials'];
+  $total = $a + $credentials;
+  $result = $mysqli->query("UPDATE data SET credentials='$a' WHERE id='$tid'");
+  $_SESSION['message']= "successful";
+  $_SESSION['msg_type'] = "warning";
+
+  header("location:index.php");
+
 
 }

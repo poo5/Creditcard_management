@@ -46,7 +46,8 @@
             <th>Email_id</th>
             <th>Name</th>
             <th> Credentials</th>
-            <th colpan="2"> Action</th>
+
+            <th colpan="3"> Action</th>
           </tr>
         </thead>
 
@@ -61,6 +62,8 @@
                       class="btn btn-info">Edit</a>
                       <a href="process.php?delete=<?php echo $row['id']; ?>"
                         class="btn btn-danger">delete</a>
+                        <a href="transfer.php?transfer=<?php echo $row['id']; ?>"
+                          class="btn btn-info">transfer</a>
                   </td>
                 </tr>
               <?php endwhile; ?>
@@ -82,19 +85,19 @@
       <div class="form-group">
       <label>Email_id</label>
       <input type ="text" name="email_id" class="form-control"
-      value="<?php echo $email_id; ?>" placeholder="Enter your email_id">
+      value="<?php echo $email_id; ?>" placeholder=" email_id">
     </div>
 
       <div class="form-group">
       <label> Name</label>
       <input type ="text" name="name" class="form-control"
-      value="<?php echo $name; ?>" placeholder="Enter your Name">
+      value="<?php echo $name; ?>" placeholder=" Name">
     </div>
 
       <div class="form-group">
       <label> Credentials</label>
       <input type="text" name="credentials" class="form-control"
-      value="<?php echo $credentials; ?>" placeholder ="Enter credentials">
+      value="<?php echo $credentials; ?>" placeholder =" credentials">
     </div>
 
       <div class="form-group">
@@ -106,6 +109,9 @@
                 <button type="submit" class="btn btn-primary" name="save">Save</button>
           <?php endif; ?>
     </div>
+
+    </body>
+  </html>
   </form>
 </div>
 </div>
